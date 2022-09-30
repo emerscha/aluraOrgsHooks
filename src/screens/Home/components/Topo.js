@@ -1,15 +1,28 @@
 import React from 'react';
 import {View, Text, Image, StyleSheet} from 'react-native';
+import {loadTop, loadProdutores} from '../../../services/loadData';
 import logo from '../../../assets/logo.png';
 
-export default function Topo() {
-  return (
-    <View style={styles.top}>
-      <Image source={logo} style={styles.image} />
-      <Text style={styles.welcomeText}>Olá Emerson</Text>
-      <Text style={styles.subtitleText}>Encontre os melhores produtores</Text>
-    </View>
-  );
+class Top extends React.Component {
+  updateTop() {
+    const ret = loadTop();
+    console.log(ret);
+  }
+
+  componentDidMount() {
+    //console.log('Componente Montado');
+    this.updateTop();
+  }
+
+  render() {
+    return (
+      <View style={styles.top}>
+        <Image source={logo} style={styles.image} />
+        <Text style={styles.welcomeText}>Olá Emerson</Text>
+        <Text style={styles.subtitleText}>Encontre os melhores produtores</Text>
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
@@ -32,3 +45,5 @@ const styles = StyleSheet.create({
     lineHeight: 26,
   },
 });
+
+export default Top;
