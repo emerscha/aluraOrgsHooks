@@ -4,9 +4,19 @@ import {loadTop, loadProdutores} from '../../../services/loadData';
 import logo from '../../../assets/logo.png';
 
 class Top extends React.Component {
+  state = {
+    top: {
+      welcomeText: '',
+      subtitleText: '',
+    },
+  };
+
   updateTop() {
     const ret = loadTop();
-    console.log(ret);
+    this.setState({
+      top: ret,
+    });
+    //console.log(ret);
   }
 
   componentDidMount() {
@@ -18,8 +28,8 @@ class Top extends React.Component {
     return (
       <View style={styles.top}>
         <Image source={logo} style={styles.image} />
-        <Text style={styles.welcomeText}>Olá Emerson</Text>
-        <Text style={styles.subtitleText}>Encontre os melhores produtores</Text>
+        <Text style={styles.welcomeText}>{this.state.top.welcomeText}</Text>
+        <Text style={styles.subtitleText}>{this.state.top.subtitleText}</Text>
       </View>
     );
   }

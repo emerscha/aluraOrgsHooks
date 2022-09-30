@@ -1,6 +1,6 @@
 const top = {
-  welcome: 'Olá Emerson',
-  subtitle: 'Encontre os melhores produtores',
+  welcomeText: 'Olá Emerson',
+  subtitleText: 'Encontre os melhores produtores',
 };
 
 export default top;
